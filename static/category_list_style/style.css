@@ -1,0 +1,118 @@
+/* your CSS file or style tag in HTML */
+*{
+    font-family: 'poppins',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #ffffff; 
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 5px 5% ;
+    position: sticky;
+    top: 2px;
+    z-index: 100;
+
+
+}
+
+.btn{
+    color: black;
+    background-color: #cee9f1;
+}
+
+.logo{
+    width: 160px;
+    margin-right: 40px;
+}
+.nav-left, .nav-right{
+    display: flex;
+    align-items: center;
+     
+}
+.nav-left ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 20px;
+    color: black;
+
+}
+
+.nav-right ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 20px;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: calc(33.33% - 10px); /* Adjust as needed to fit three cards in a row with margins */
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+}
+
+.card:nth-child(3n) {
+    margin-right: 0; /* Remove the right margin for every third card */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    margin-top: 20px; /* Adjusted margin-top */
+    border-radius: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    margin-left: 50px;
+}
+
+.search-button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.search-button:hover {
+    background-color: #83a9d3;
+}
+
+/* Additional styles for other elements if needed */
+
+.products-view {
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px; /* Adjusted margin-top */
+    border: 1.5px solid black;
+    padding: 20px;
+    border-radius: 10px;
+}

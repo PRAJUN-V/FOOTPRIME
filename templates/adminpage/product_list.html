@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="en">
+{% load static %}
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:35 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Product Management</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+    <!-- Template CSS -->
+    <link href="{% static "adminpage/assets/css/main.css" %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item active">
+                    <a class="menu-link" href="{% url "adminpage:admin_login" %}"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:product_management" %}">Product Management</a>
+                        <a href="{% url "adminpage:category_management" %}">Category Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Users</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:user_management" %}">User Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:order_list" %}">Order list</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-local_offer"></i>
+                    </i>
+                        <span class="text">Coupon</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:coupon_management" %}">Coupon management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-stars"></i>
+                    </i>
+                        <span class="text">Banner</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:banner" %}">Banner management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-monetization_on"></i>
+                    </i>
+                        <span class="text">Transactions</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:transactions" %}">Transaction management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-pie_chart"></i>
+                    </i>
+                        <span class="text">Offer</span>
+                    </a>
+                    <div class="submenu">
+                        {% comment %} <a href="{% url "adminpage:transactions" %}">Category Offer</a> {% endcomment %}
+                        <a href="{% url "adminpage:offer_management" %}">Product offer</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div>
+                    <datalist id="search_terms">
+                            <option value="Product Management">
+                            <option value="Category Management">
+                            <option value="User Management">
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="{% url "home:signout" %}">
+                            <h3>Logout</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Products List</h2>
+                </div>
+                <div>
+                    <a href="{% url "adminpage:add_products" %}" class="btn btn-primary btn-sm rounded">Add new product</a>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    {% for p  in  products%}
+                    <article class="itemlist">
+                        <div class="row align-items-center">
+                            {% comment %} <div class="col col-check flex-grow-0">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
+                            </div> {% endcomment %}
+                            
+                            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                                <a class="itemside" href="#">
+                                    {% comment %} <div class="left">
+                                        <img src="assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item">
+                                    </div> {% endcomment %}
+                                    <div class="info">
+                                        <h6 class="mb-0">{{p.title}}</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            {% if  p.is_active%}
+                            <div class="col-lg-2 col-sm-2 col-4 col-status">
+                                <span class="badge rounded-pill alert-success">Active</span>
+                            </div>
+                            {% else %}
+                            <div class="col-lg-2 col-sm-2 col-4 col-status">
+                                <span class="badge rounded-pill alert-danger">Inactive</span>
+                            </div>
+                            {% endif %}
+                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                                <a href="{% url "adminpage:update_product" p.id %}" class="btn btn-sm font-sm rounded btn-brand">
+                                    <i class="material-icons md-edit"></i> Edit
+                                </a>
+                                
+                                <form method="post" action="{% url "adminpage:activate_deactivate" p.id %}">
+                                {% csrf_token %}
+                                {% if  p.is_active%}
+                                <button type="submit" class="btn btn-sm font-sm btn-light rounded">
+                                    <i class="material-icons md-delete_forever"></i> Deactivate
+                                </button>
+                                {% else %}
+                                <button type="submit" class="btn btn-sm font-sm btn-light rounded">
+                                    <i class="material-icons md-delete_forever"></i> Activate
+                                </button>
+                                {% endif %}
+
+                                </form>
+                                <a href="{% url "adminpage:varients" p.id%}" class="btn btn-sm font-sm rounded btn-brand">
+                                    Varients
+                                </a>
+                                {% comment %} <form method="post" action="{% url 'adminPanel:activeDeactiveProducts' product.id %}" class="d-inline">
+                                    {% csrf_token %}
+                                    {% if product.is_active %}
+                                        <button type="submit" class="btn btn-danger btn-sm">Deactivate</button>
+                                    {% else %}
+                                        <button type="submit" class="btn btn-success btn-sm">Activate</button>
+                                    {% endif %}
+                                </form> {% endcomment %}
+                            </div>
+                        </div> <!-- row .// -->
+                    </article> <!-- itemlist  .// -->
+                    {% endfor %}
+                    
+                </div> <!-- card-body end// -->
+            </div> <!-- card end// -->
+            {% comment %} <div class="pagination-area mt-30 mb-50">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-start">
+                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                        <li class="page-item"><a class="page-link" href="#">02</a></li>
+                        <li class="page-item"><a class="page-link" href="#">03</a></li>
+                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+                    </ul>
+                </nav>
+            </div> {% endcomment %}
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                    {% endif %}
+                    {% for num in products.paginator.page_range %}
+                        <li class="page-item {% if num == products.number %}active{% endif %}">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if products.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">Next</span></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            
+        </section>
+        
+    </main>
+    <script src="{% static "adminpage/assets/js/vendors/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/select2.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/jquery.fullscreen.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/chart.js" %}"></script>
+    <!-- Main Script -->
+    <script src="{% static "adminpage/assets/js/main.js" %}" type="text/javascript"></script>
+    <script src="{% static "adminpage/assets/js/custom-chart.js" %}" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:57 GMT -->
+</html>

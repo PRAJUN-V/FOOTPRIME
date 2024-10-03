@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'category_list_style/style.css' %}">
+    <title>Add Coupon</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add Coupon</h2>
+    {% if messages %}
+        <div class="alert alert-danger">
+            <ul class="messages" style="list-style-type: none; color: red;">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="code" class="form-label">Coupon Code</label>
+            <input type="text" class="form-control" id="code" name="code" required>
+        </div>
+        <div class="mb-3">
+            <label for="discount_price" class="form-label">Discount Percentage</label>
+            <input type="number" class="form-control" id="discount_price" name="discount_price" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label for="min_cart_value" class="form-label">Minimum cart value</label>
+            <input type="number" class="form-control" id="min_cart_value" name="min_cart_value" required>
+        </div>
+        {% comment %} <div class="mb-3">
+            <label for="max_discount" class="form-label">Maximum discount</label>
+            <input type="number" class="form-control" id="max_discount" name="max_discount" required>
+        </div> {% endcomment %}
+        <div class="mb-3">
+            <label for="max_usage_count" class="form-label">Maximum usage count</label>
+            <input type="number" class="form-control" id="max_usage_count" name="max_usage_count" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Coupon</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>FOOT PRIME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{% static "home/assets/img/apple-icon.png" %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+
+    <link rel="stylesheet" href="{% static "home/assets/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/templatemo.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/custom.css" %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static "home/assets/css/fontawesome.min.css" %}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static "cart/assets/css/main.css" %}">
+    <style>
+        .mybutton {
+            display: inline-block;
+            padding: 8px 12px; /* Adjust padding according to your preference */
+            text-decoration: none;
+            background-color: #ccc; /* Gray background color */
+            color: #333; /* Dark gray text color */
+            border: 1px solid #999; /* Dark gray border color */
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+        
+        .button:hover {
+            background-color: #999; /* Darken the background color on hover */
+        }
+        
+        </style>
+        </head>
+</head>
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <a class="text-light" href="#"  rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"> <i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+   <!-- Header -->
+   <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class='image-fluid' href=""><img width="90px" src="{% static "home/images/logo1.png" %}" alt=""></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home:home" %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home:about" %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home:shop" %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home:contact" %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                {% comment %} <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a> {% endcomment %}
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "wallet:wallet" %}">
+                    <i class="fa fa-fw fa-wallet text-dark mr-2"></i>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "wishlist:wishlist" %}">
+                    <i class="fa fa-fw fa-heart text-dark mr-2"></i>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "cart_management:cart" %}">
+                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "user_profile:user_profile" %}">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                    {% if user.is_active %}
+                    {% comment %} <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        <b>{{uname}}</b>
+                    </p> {% endcomment %}
+                    {% else %}
+                    <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        Signin | Signup
+                    </p>
+                    {% endif %}
+                </a>
+                <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signout" %}">
+                    {% if user.is_active %}
+                    <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        <b>Signout</b>
+                    </p>
+                    {% endif %}
+                </a>
+    
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- Close Header -->
+    <main class="main">
+        
+        <section class="mt-50 mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% comment %} {% if messages %}
+                        <ul class="messages" style="list-style-type:none; color: red;">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                        <br>
+                        {% endif %} {% endcomment %}
+                        <div class="table-responsive">
+                            {% if wishlist_item %} 
+                            <h3 style="text-align: center;">Your wishlist</h3>
+                            <br>
+                            {% comment %} <div><h1>Total price : ₹{{ total_price }}</h1></div> {% endcomment %}
+                            <table class="table shopping-summery text-center clean">
+                                
+                                <thead>
+                                    <tr class="main-heading">
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Stock status</th> 
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    {% for item in wishlist_item %}
+                                    <tr>
+                                        <td class="image product-thumbnail"><img src="{{item.product.image.url}}" alt="#"></td>
+                                        <td class="product-des product-name">
+                                            <h5 class="product-name">{{item.product}}</h5>
+                                            {% comment %} <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                                <br> distingy magndapibus
+                                            </p> {% endcomment %}
+                                        </td>
+                                        <td class="text-right" data-title="Cart">
+                                            <span>{{item.size}}</span>
+                                        </td>
+                                        <td class="text-right" data-title="Cart">    
+                                            <span>₹{{item.price}}</span>
+                                        </td>
+                                        <td class="text-right" data-title="Cart">
+                                            {% if item.variant_stock_quantity > 0 %}
+                                                <span>In stock</span>
+                                            {% else %}
+                                                <span style="color: red;">Out of Stock</span>
+                                            {% endif %}
+                                        </td>
+                                        
+                                        <td class="text-right" data-title="Cart">
+                                            {% if item.variant_stock_quantity > 0 %}
+                                                <a class="btn btn-sm" href="{% url "cart_management:add_to_cart" product_id=item.product.id varient=item.size%}">Add to cart</a>
+                                            {% else %}
+                                                <button class="btn btn-sm" disabled>Out of Stock</button>
+                                            {% endif %}
+                                        </td>
+                                        
+                                        <td class="action" data-title="Remove"><a href="{% url "wishlist:remove_wishlist_item" item.id %}" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                    </tr>
+                                    {% endfor %}    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="cart-action text-end">
+                            {% comment %} <a class="btn  mr-10 mb-sm-15" href="{% url "cart_management:cart_checkout" %}">Proceed to checkout</a> {% endcomment %}
+                            <a class="btn " href="{% url "home:home" %}"></i>Continue Shopping</a>
+                        </div>
+                       {% else %}
+                        <h1 style="text-align: center;">Your wishlist is empty</h1>
+                        <br>
+                        <div style="text-align: center;"><a class='btn ' href="{% url "home:home" %}">Continue Shopping</a></iv>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    <!-- Vendor JS-->
+    <script src="{% static "cart/assets/js/vendor/modernizr-3.6.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/jquery-migrate-3.3.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/slick.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.syotimer.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/wow.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery-ui.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/magnific-popup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/select2.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/waypoints.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/counterup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.countdown.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/images-loaded.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/isotope.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/scrollup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.vticker-min.js" %}"></script>
+    <!-- Template  JS -->
+    <script src="{% static "cart/assets/js/main.js" %}"></script>
+    <script src="{% static "cart/assets/js/shop.js" %}"></script>
+
+    <!-- Start Script -->
+    <script src="{% static "home/assets/js/jquery-1.11.0.min.js" %}"></script>
+    <script src="{% static "home/assets/js/jquery-migrate-1.2.1.min.js" %}"></script>
+    <script src="{% static "home/assets/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "home/assets/js/templatemo.js" %}"></script>
+    <script src="{% static "home/assets/js/custom.js" %}"></script>
+    <!-- End Script -->
+</body>
+</html>

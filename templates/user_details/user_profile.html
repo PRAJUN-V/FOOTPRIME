@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>FOOT PRIME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{% static "home/assets/img/apple-icon.png" %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+
+    <link rel="stylesheet" href="{% static "home/assets/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/templatemo.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/custom.css" %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static "home/assets/css/fontawesome.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "user_profile/assets/css/bootstrap.min.css" %}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static "user_profile/assets/css/style.css" %}">
+</head>
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <a class="text-light" href="#"  rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"> <i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class='image-fluid' href=""><img width="90px" src="{% static "home/images/logo1.png" %}" alt=""></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:home" %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:about" %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:shop" %}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:contact" %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a> {% endcomment %}
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wallet:wallet" %}">
+                        <i class="fa fa-fw fa-wallet text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wishlist:wishlist" %}">
+                        <i class="fa fa-fw fa-heart text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "cart_management:cart" %}">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "user_profile:user_profile" %}">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        {% if user.is_active %}
+                        {% comment %} <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>{{uname}}</b>
+                        </p> {% endcomment %}
+                        {% else %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            Signin | Signup
+                        </p>
+                        {% endif %}
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signout" %}">
+                        {% if user.is_active %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>Signout</b>
+                        </p>
+                        {% endif %}
+                    </a>
+        
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <div class="page-wrapper p-5">
+        <div class="page-content">
+            <div class="dashboard">
+                <div class="container">
+                    <div class="row">
+                        <aside class="col-md-4 col-lg-3">
+                            <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" >
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "user_profile:user_profile" %}">User profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "user_profile:user_order" %}">Orders</a>
+                                </li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "user_profile:user_address" %}">Downloads</a>
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "user_profile:user_address" %}">Address</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "home:change_password" %}">Change password</a>
+                                </li>
+                                {% comment %} <li class="nav-item">
+                                    <a class="nav-link" id="tab-address-link" href="{% url "user_profile:user_address" %}">Acount details</a>
+                                </li> {% endcomment %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "home:signout" %}">Sign Out</a>
+                                </li>
+                            </ul>
+                        </aside><!-- End .col-lg-3 -->
+
+                        <div class="col-md-8 col-lg-9">
+                            <div class="tab-content">
+                                {% comment %} <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
+                                    <p>Hello <span class="font-weight-normal text-dark">User</span> (not <span class="font-weight-normal text-dark">User</span>? <a href="#">Log out</a>) 
+                                    <br>
+                                    From your account dashboard you can view your <a href="#tab-orders" class="tab-trigger-link link-underline">recent orders</a>, manage your <a href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>, and <a href="#tab-account" class="tab-trigger-link">edit your password and account details</a>.</p>
+                                </div><!-- .End .tab-pane --> {% endcomment %}
+
+                                {% comment %} <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
+                                    <p>No order has been made yet.</p>
+                                    <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                </div><!-- .End .tab-pane --> {% endcomment %}
+
+                                {% comment %} <div class="tab-pane fade" id="tab-downloads" role="tabpanel" aria-labelledby="tab-downloads-link">
+                                    <p>No downloads available yet.</p>
+                                    <a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                </div><!-- .End .tab-pane --> {% endcomment %}
+
+                                <div>
+                                    <h3 class="text-primary">Personal details</h3>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="card card-dashboard">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Name : </h3><!-- End .card-title -->
+                                                    <p>{{user.username}}</p><br>
+
+
+                                                    <h3 class="card-title">Firstname : </h3>
+                                                    {% if user.first_name %}
+                                                    <p>{{ user.first_name }}<a href="{% url "user_profile:edit_user_firstname" %}"> Edit <i class="icon-edit"></i></a></p>
+                                                    {% else %}
+                                                    <p><a href="{% url "user_profile:add_user_firstname" %}"> Add Firstname <i class="icon-edit"></i></a></p>
+                                                    {% endif %}<br>
+
+                                                    <h3 class="card-title">Lastname : </h3>
+                                                    {% if user.last_name %}
+                                                    <p>{{ user.last_name }}<a href="{% url "user_profile:edit_user_lastname" %}"> Edit <i class="icon-edit"></i></a></p>
+                                                    {% else %}
+                                                    <p><a href="{% url "user_profile:add_user_lastname" %}"> Add Lastname <i class="icon-edit"></i></a></p>
+                                                    {% endif %}<br>
+
+                                                    
+                                                    <h3 class="card-title">Email : </h3>
+                                                    <p>{{user.email}}</p><br>
+
+                                                    <h3 class="card-title">Linked Mobile No:</h3>
+                                                    {% if mobile %}
+                                                    
+                                                    <ul>
+                                                        {% for mobile_instance in mobile %}
+                                                            <li>
+                                                                +91 {{ mobile_instance.mobile_number }}
+                                                                <!-- Add other mobile-related fields as needed -->
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <p>{{ mobile.mobile_number }}<a href="{% url "user_profile:edit_user_mobile" %}"> Edit Mobile Number <i class="icon-edit"></i></a></p>
+                                                    {% else %}
+                                                    <p><a href="{% url "user_profile:add_user_mobile" %}"> Add Mobile Number <i class="icon-edit"></i></a></p>
+                                                    {% endif %}
+
+                                                    
+
+                                                </div><!-- End .card-body -->
+                                            </div><!-- End .card-dashboard -->
+                                        </div><!-- End .col-lg-6 -->
+
+                                        {% comment %} <div class="col-lg-6">
+                                            <div class="card card-dashboard">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Shipping Address</h3><!-- End .card-title -->
+
+                                                    <p>You have not set up this type of address yet.<br>
+                                                    <a href="#">Edit <i class="icon-edit"></i></a></p>
+                                                </div><!-- End .card-body -->
+                                            </div><!-- End .card-dashboard -->
+                                        </div><!-- End .col-lg-6 --> {% endcomment %}
+                                    </div><!-- End .row -->
+                                </div><!-- .End .tab-pane -->
+
+                                {% comment %} <div class="tab-pane fade" id="tab-account" role="tabpanel" aria-labelledby="tab-account-link">
+                                    <form action="#">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>First Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div><!-- End .col-sm-6 -->
+
+                                            <div class="col-sm-6">
+                                                <label>Last Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div><!-- End .col-sm-6 -->
+                                        </div><!-- End .row -->
+
+                                        <label>Display Name *</label>
+                                        <input type="text" class="form-control" required>
+                                        <small class="form-text">This will be how your name will be displayed in the account section and in reviews</small>
+
+                                        <label>Email address *</label>
+                                        <input type="email" class="form-control" required>
+
+                                        <label>Current password (leave blank to leave unchanged)</label>
+                                        <input type="password" class="form-control">
+
+                                        <label>New password (leave blank to leave unchanged)</label>
+                                        <input type="password" class="form-control">
+
+                                        <label>Confirm new password</label>
+                                        <input type="password" class="form-control mb-2">
+
+                                        <button type="submit" class="btn btn-outline-primary-2">
+                                            <span>SAVE CHANGES</span>
+                                            <i class="icon-long-arrow-right"></i>
+                                        </button>
+                                    </form>
+                                </div><!-- .End .tab-pane --> {% endcomment %}
+                            </div>
+                        </div><!-- End .col-lg-9 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .dashboard -->
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->
+
+    <footer class="footer">
+        
+        
+    </footer><!-- End .footer -->
+</div><!-- End .page-wrapper -->
+
+
+
+
+    <!-- Start Script -->
+    <script src="{% static "home/assets/js/jquery-1.11.0.min.js" %}"></script>
+    <script src="{% static "home/assets/js/jquery-migrate-1.2.1.min.js" %}"></script>
+    <script src="{% static "home/assets/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "home/assets/js/templatemo.js" %}"></script>
+    <script src="{% static "home/assets/js/custom.js" %}"></script>
+    <!-- End Script -->
+
+
+    <!-- Plugins JS File -->
+    <script src="{% static "user_profile/assets/js/jquery.min.js" %}"></script>
+    <script src="{% static "user_profile/assets/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "user_profile/assets/js/jquery.hoverIntent.min.js" %}"></script>
+    <script src="{% static "user_profile/assets/js/jquery.waypoints.min.js" %}"></script>
+    <script src="{% static "user_profile/assets/js/superfish.min.js" %}"></script>
+    <script src="{% static "user_profile/assets/js/owl.carousel.min.js" %}"></script>
+    <!-- Main JS File -->
+    <script src="{% static "user_profile/assets/js/main.js" %}"></script>
+</body>
+</html>

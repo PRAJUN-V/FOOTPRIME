@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html lang="en">
+{% load static %}
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:35 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+    <!-- Template CSS -->
+    <link href="{% static "adminpage/assets/css/main.css" %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item active">
+                    <a class="menu-link" href="{% url "adminpage:admin_login" %}"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:product_management" %}">Product Management</a>
+                        <a href="{% url "adminpage:category_management" %}">Category Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Users</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:user_management" %}">User Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:order_list" %}">Order list</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-local_offer"></i>
+                    </i>
+                        <span class="text">Coupon</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:coupon_management" %}">Coupon management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-stars"></i>
+                    </i>
+                        <span class="text">Banner</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:banner" %}">Banner management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-monetization_on"></i>
+                    </i>
+                        <span class="text">Transactions</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:transactions" %}">Transaction management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-pie_chart"></i>
+                    </i>
+                        <span class="text">Offer</span>
+                    </a>
+                    <div class="submenu">
+                        {% comment %} <a href="{% url "adminpage:transactions" %}">Category Offer</a> {% endcomment %}
+                        <a href="{% url "adminpage:offer_management" %}">Product offer</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div>
+                    <datalist id="search_terms">
+                            <option value="Product Management">
+                            <option value="Category Management">
+                            <option value="User Management">
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="{% url "home:signout" %}">
+                            <h3>Logout</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Dashboard </h2>
+                </div>
+                <div>
+                    <a href="{% url "adminpage:export_order_details_to_excel" %}" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Create report</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-primary-light"><i class="text-primary material-icons md-monetization_on"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Revenue</h6>
+                                <span>₹{{revenue}}</span>
+                                <span class="text-sm">
+                                    Shipping fees are not included
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-success-light"><i class="text-success material-icons md-local_shipping"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Orders</h6> <span>{{total_orders}}</span>
+                                <span class="text-sm">
+                                    Including COD orders
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-warning-light"><i class="text-warning material-icons md-qr_code"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Products</h6> <span>{{tp}}</span>
+                                <span class="text-sm">
+                                    In {{tc}} Categories
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card card-body mb-4">
+                        <article class="icontext">
+                            <span class="icon icon-sm rounded-circle bg-info-light"><i class="text-info material-icons md-person"></i></span>
+                            <div class="text">
+                                <h6 class="mb-1 card-title">Total Costumers</h6> <span>{{tu}}</span>
+                                <span class="text-sm">
+                                    Excluding customers without logging
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card mb-4">
+                        <article class="card-body">
+                            <h5 class="card-title">Sale statistics</h5>
+                            <div class="container mt-4">
+                                <label for="timePeriodSelector">Select Time Period:</label>
+                                <select class="form-control" id="timePeriodSelector">
+                                  <option value="Weekly">Weekly</option>
+                                  <option value="Monthly">Monthly</option>
+                                  <option value="Yearly">Yearly</option>
+                                </select>
+                              </div>
+                            
+                            <canvas id="myChart" height="120px"></canvas>
+                        </article>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Top Selling Products</h5>
+                                    <div class="new-member-list">
+                                        {% for topp in  topp%}
+                                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <div>
+                                                    <h6>{{topp.product}}</h6>
+                                                    <p class="text-muted font-xs">
+                                                        {{topp.product.category}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Top Selling Categories</h5>
+                                    <div class="new-member-list">
+                                        {% for topc in topc %}
+                                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <div>
+                                                    <h6>{{topc.name}}</h6>
+                                                    <p class="text-muted font-xs">
+                                                       {{topc.description}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card mb-4">
+                                <article class="card-body">
+                                    <h5 class="card-title">Latest users</h5>
+                                    <div class="new-member-list">
+                                        {% for ls in ls %}
+                                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <div>
+                                                    <h6>{{ls.username}}</h6>
+                                                    <p class="text-muted font-xs">
+                                                        {{ls.first_name}} {{ls.last_name}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </section> <!-- content-main end// -->
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, FOOTPRIME
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        
+    </main>
+
+    
+    
+
+    <script src="{% static "adminpage/assets/js/vendors/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/select2.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/jquery.fullscreen.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/chart.js" %}"></script>
+    <!-- Main Script -->
+    <script src="{% static "adminpage/assets/js/main.js" %}" type="text/javascript"></script>
+    {% comment %} <script src="{% static "adminpage/assets/js/custom-chart.js" %}" type="text/javascript"></script> {% endcomment %}
+    <!-- for data in chart-->
+    <script>
+        (function ($) {
+            "use strict";
+        
+            // Function to generate labels based on the time period
+            function generateLabels(timePeriod) {
+                if (timePeriod === 'Weekly') {
+                    return ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                } else if (timePeriod === 'Monthly') {
+                    return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+                } else if (timePeriod === 'Yearly') {
+                    return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                }
+            }
+        
+            // Chart creation
+            if ($('#myChart').length) {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: generateLabels('Weekly'),
+                        datasets: [{
+                            label: 'Total sales',
+                            tension: 0.3,
+                            fill: true,
+                            borderColor: 'rgba(0, 120, 0)',
+                            backgroundColor: 'rgba(0, 120, 0, 0.2)',
+                            data: {{a}}
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    usePointStyle: true,
+                                },
+                            }
+                        },
+                        scales: {
+                            y: {
+                                suggestedMax: 30,  // Adjust the maximum value as needed
+                                suggestedMin: 0,  // Adjust the minimum value as needed
+                            }
+                        }
+                    }
+                });
+        
+                // Function to update chart based on time period
+                function updateChart(timePeriod) {
+                    chart.data.labels = generateLabels(timePeriod);
+                    if (timePeriod === 'Weekly') {
+                        chart.data.datasets[0].data = {{a}};
+                        chart.data.datasets[0].borderColor = 'rgba(0, 120, 0)';
+                        chart.data.datasets[0].backgroundColor = 'rgba(0, 120, 0, 0.2)';
+                    } else if (timePeriod === 'Monthly') {
+                        chart.data.datasets[0].data = {{b}};
+                        chart.data.datasets[0].borderColor = 'rgba(255, 99, 132)';
+                        chart.data.datasets[0].backgroundColor = 'rgba(255, 99, 132, 0.2)';
+                    } else if (timePeriod === 'Yearly') {
+                        chart.data.datasets[0].data = {{c}};
+                        chart.data.datasets[0].borderColor = 'rgba(75, 192, 192)';
+                        chart.data.datasets[0].backgroundColor = 'rgba(75, 192, 192, 0.2)';
+                    }
+                    chart.update(); // Update the chart with new labels and data
+                }
+        
+                // Event listener for the time period selector
+                $('#timePeriodSelector').on('change', function () {
+                    var selectedTimePeriod = $(this).val();
+                    updateChart(selectedTimePeriod);
+                });
+        
+                // Event listener for the buttons
+                $('#weeklyBtn').on('click', function () {
+                    updateChart('Weekly');
+                });
+        
+                $('#monthlyBtn').on('click', function () {
+                    updateChart('Monthly');
+                });
+            } // End if
+        })(jQuery);
+    </script>
+    
+
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:57 GMT -->
+</html>

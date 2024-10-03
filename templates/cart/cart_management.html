@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>FOOT PRIME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="{% static "home/assets/img/apple-icon.png" %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+
+    <link rel="stylesheet" href="{% static "home/assets/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/templatemo.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/custom.css" %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static "home/assets/css/fontawesome.min.css" %}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static "cart/assets/css/main.css" %}">
+    <style>
+        .mybutton {
+            display: inline-block;
+            padding: 8px 12px; /* Adjust padding according to your preference */
+            text-decoration: none;
+            background-color: #ccc; /* Gray background color */
+            color: #333; /* Dark gray text color */
+            border: 1px solid #999; /* Dark gray border color */
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+        
+        .button:hover {
+            background-color: #999; /* Darken the background color on hover */
+        }
+        
+        </style>
+        <style>
+            /* Adjust font size */
+            .swal2-title {
+              font-size: 18px; /* You can adjust this value */
+            }
+        
+            .swal2-content {
+              font-size: 10px; /* You can adjust this value */
+            }
+          </style>
+        </head>
+</head>
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <a class="text-light" href="#"  rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"> <i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class='image-fluid' href=""><img width="90px" src="{% static "home/images/logo1.png" %}" alt=""></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:home" %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:about" %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:shop" %}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:contact" %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a> {% endcomment %}
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wallet:wallet" %}">
+                        <i class="fa fa-fw fa-wallet text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wishlist:wishlist" %}">
+                        <i class="fa fa-fw fa-heart text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "cart_management:cart" %}">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "user_profile:user_profile" %}">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        {% if user.is_active %}
+                        {% comment %} <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>{{uname}}</b>
+                        </p> {% endcomment %}
+                        {% else %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            Signin | Signup
+                        </p>
+                        {% endif %}
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signout" %}">
+                        {% if user.is_active %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>Signout</b>
+                        </p>
+                        {% endif %}
+                    </a>
+        
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+    <main class="main">
+        <section class="mt-50 mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% if messages %}
+                        <ul class="messages" style="list-style-type:none; color: red;">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                        <br>
+                        {% endif %}
+                        <div class="table-responsive">
+                            {% if cart_item %}
+                            {% comment %} <div><h1>Total price : ₹{{ total_price }}</h1></div> {% endcomment %}
+                            <table class="table shopping-summery text-center clean">
+                                
+                                <thead>
+                                    <tr class="main-heading">
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Price per item</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cart_item %}
+                                    <tr>
+                                        <td class="image product-thumbnail"><img src="{{ item.product.image.url }}" alt="#"></td>
+                                        <td class="product-des product-name">
+                                            <h5 class="product-name">{{ item.product }}</h5>
+                                        </td>
+                                        <td class="price" data-title="Price"><span>₹{{ item.price }}</span></td>
+                                        <td class="text-center" data-title="Stock">
+                                            <a href="#" class="quantity-control" data-action="add" data-item-id="{{ item.id }}" data-product-id="{{ item.product.id }}" data-size="{{ item.size }}"><h3>+</h3></a>
+                                            <div id="quantity-{{ item.id }}" class="detail-qty border radius  m-auto">
+                                                <span>{{ item.quantity }}</span>
+                                            </div>
+                                            <a href="#" class="quantity-control" data-action="minus" data-item-id="{{ item.id }}"><h3>-</h3></a>
+                                        </td>
+                                        <td class="text-right" data-title="Cart">
+                                            <span>{{ item.size }}</span>
+                                        </td>
+                                        <td class="action" data-title="Remove"><a href="{% url 'cart_management:remove_cart_item' item.id %}" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                    </tr>
+                                    {% endfor %}    
+                                </tbody>                                
+                            </table>
+                        </div>
+                        <div class="cart-action text-end">
+                            <a class="btn  mr-10 mb-sm-15" href="{% url "cart_management:cart_checkout" %}">Proceed to checkout</a>
+                            <a class="btn " href="{% url "home:home" %}"></i>Continue Shopping</a>
+                        </div>
+                        {% else %}
+                        <h1 style="text-align: center;">Your cart is empty</h1>
+                        <br>
+                        <div style="text-align: center;"><a class='btn ' href="{% url "home:home" %}">Continue Shopping</a></iv>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    <!-- Vendor JS-->
+    <script src="{% static "cart/assets/js/vendor/modernizr-3.6.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/jquery-migrate-3.3.0.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/vendor/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/slick.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.syotimer.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/wow.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery-ui.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/magnific-popup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/select2.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/waypoints.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/counterup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.countdown.min.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/images-loaded.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/isotope.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/scrollup.js" %}"></script>
+    <script src="{% static "cart/assets/js/plugins/jquery.vticker-min.js" %}"></script>
+    <!-- Template  JS -->
+    <script src="{% static "cart/assets/js/main.js" %}"></script>
+    <script src="{% static "cart/assets/js/shop.js" %}"></script>
+  
+
+
+
+
+    <!-- Start Script -->
+    <script src="{% static "home/assets/js/jquery-1.11.0.min.js" %}"></script>
+    <script src="{% static "home/assets/js/jquery-migrate-1.2.1.min.js" %}"></script>
+    <script src="{% static "home/assets/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "home/assets/js/templatemo.js" %}"></script>
+    <script src="{% static "home/assets/js/custom.js" %}"></script>
+    <!-- End Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.quantity-control').click(function(e){
+                e.preventDefault();
+                var action = $(this).data('action');
+                var itemId = $(this).data('item-id');
+                var productId = $(this).data('product-id');
+                var size = $(this).data('size');
+        
+                var url = action === 'add' ? "{% url 'cart_management:quantity_add' 0 0 0 %}".replace('0', itemId).replace('0', productId).replace('0', size) : "{% url 'cart_management:quantity_minus' 0 %}".replace('0', itemId);
+        
+                var $quantitySpan = $('#quantity-' + itemId + ' span'); // Dynamically construct the selector
+        
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: {
+                        'item_id': itemId,
+                        'product_id': productId,
+                        'size': size
+                    },
+                    success: function(response){
+                        // Check for errors
+                        if (response.error) {
+                            Swal.fire(response.error);
+                            return; // Exit early if there's an error
+                        }
+                        // Update quantity for the specific item
+                        $quantitySpan.text(response.quantity);
+                        // Update total price if needed
+                        $('#total-price').text(response.total_price);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });        
+    </script>                     
+</body>
+</html>

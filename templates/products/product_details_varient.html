@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>FOOT PRIME</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+
+    <link rel="stylesheet" href="{% static "home/assets/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/templatemo.css" %}">
+    <link rel="stylesheet" href="{% static "home/assets/css/custom.css" %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static "home/assets/css/fontawesome.min.css" %}">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static "home/product_details_assets/assets/css/main.css" %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <a class="text-light" href="#"  rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"> <i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="#"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class='image-fluid' href=""><img width="90px" src="{% static "home/images/logo1.png" %}" alt=""></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:home" %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:about" %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:shop" %}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "home:contact" %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a> {% endcomment %}
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wallet:wallet" %}">
+                        <i class="fa fa-fw fa-wallet text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "wishlist:wishlist" %}">
+                        <i class="fa fa-fw fa-heart text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "cart_management:cart" %}">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "user_profile:user_profile" %}">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                        {% if user.is_active %}
+                        {% comment %} <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>{{uname}}</b>
+                        </p> {% endcomment %}
+                        {% else %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            Signin | Signup
+                        </p>
+                        {% endif %}
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url "home:signout" %}">
+                        {% if user.is_active %}
+                        <p style="display: inline;" class="nav-icon position-relative text-decoration-none" href="{% url "home:signin" %}">
+                            <b>Signout</b>
+                        </p>
+                        {% endif %}
+                    </a>
+        
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+    <!-- Main -->
+    <main class="main">
+        <section class="mt-50 mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product-detail accordion-detail">
+                            <div class="row mb-50">
+                                <div class="col-md-4 col-sm-8 col-xs-8">
+                                    <div class="detail-gallery">
+                                        <!-- MAIN SLIDES -->
+                                        <div class="product-image-slider">
+                                            {% if product.multipleimage_set.all %}
+                                            {% for image in product.multipleimage_set.all %}
+                                            <figure class="border-radius-10">
+                                                <img src="{{image.image.url}}" alt="product image">
+                                            </figure>
+                                            {% endfor %}
+                                            {% else %}
+                                            <p>No additional product image uploaded.</p>
+                                            {% endif %}
+
+                                            {% comment %} <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-1.jpg" %}" alt="product image">
+                                            </figure>
+                                            <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-3.jpg" %}" alt="product image">
+                                            </figure>
+                                            <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-4.jpg" %}" alt="product image">
+                                            </figure>
+                                            <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-5.jpg" %}" alt="product image">
+                                            </figure>
+                                            <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-6.jpg" %}" alt="product image">
+                                            </figure>
+                                            <figure class="border-radius-10">
+                                                <img src="{% static "home/product_details_assets/assets/imgs/shop/product-16-7.jpg" %}" alt="product image">
+                                            </figure> {% endcomment %}
+                                        </div>
+                                        <!-- THUMBNAILS -->
+                                        <div class="slider-nav-thumbnails pl-15 pr-15">
+                                            {% if product.multipleimage_set.all %}
+                                            {% for image in product.multipleimage_set.all %}
+                                            <div><img src="{{image.image.url}}" alt="product image"></div>
+                                            {% endfor %}
+                                            {% else %}
+                                            <p>No additional product image uploaded.</p>
+                                            {% endif %}
+                                            </div>
+                                        {% comment %} {% if product.multipleimage_set.all %}
+                                        {% for image in product.multipleimage_set.all %}
+                                        <!-- Additional Image with Zoom.js -->
+                                        <img class="additional-image zoom" src="{{ image.image.url }}" alt="Additional Product Image" onclick="swapImages(this)">
+                                        {% endfor %}
+                                        {% else %}
+                                        <p>No additional images available.</p>
+                                        {% endif %} {% endcomment %}
+                                    </div>
+                                    <!-- End Gallery -->
+                                
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="detail-info">
+                                        <h2 class="title-detail">{{product.title}}</h2>
+                                        <div class="product-detail-rating">
+                                            <div class="pro-details-brand">
+                                                <span> Category  :  {{product.category}}</a></span>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix product-price-cover">
+                                            <div class="product-price primary-color float-left">
+                                                <ins><span class="text-brand">₹{{ price }}.00</span></ins>
+                                                {% if offer %}
+                                                <ins><span class="font-md ml-15 text-danger">OFFER PRICE</span></ins>
+                                                {% endif %}
+                                                {% comment %} <span class="save-price  font-md color3 ml-15">25% Off</span> {% endcomment %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                                        <div class="short-desc mb-30">
+                                            <p>{{product.description}}</p>
+                                        </div>
+                                        {% comment %} <div class="product_sort_info font-xs mb-30">
+                                            <ul>
+                                                <li class="mb-10"><i class="fi-rs-crown mr-5"></i> 1 Year AL Jazeera Brand Warranty</li>
+                                                <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> 30 Day Return Policy</li>
+                                                <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
+                                            </ul>
+                                        </div> {% endcomment %}
+                                        {% comment %} <div class="attr-detail attr-color mb-15">
+                                            <strong class="mr-10">Color</strong>
+                                            <ul class="list-filter color-filter">
+                                                <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
+                                                <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
+                                                <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
+                                                <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a></li>
+                                                <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
+                                                <li><a href="#" data-color="Green"><span class="product-color-green"></span></a></li>
+                                                <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a></li>
+                                            </ul>
+                                        </div> {% endcomment %}
+                                        
+                                        <div class="attr-detail attr-size">
+                                            <strong class="mr-10">Available size:</strong>
+                                            <ul class="list-inline">
+                                                {% if '7' in sizes %}
+                                                <li class="list-inline-item"><a href="{% url "home:product_details_varient" id=product.id varient=7%}">7</a></li>
+                                                {% endif %}
+                                                {% if '8' in sizes %}
+                                                <li class="list-inline-item"><a href="{% url "home:product_details" product.id%}">8</a></li>
+                                                {% endif %}
+                                                {% if '9' in sizes %}
+                                                <li class="list-inline-item"><a href="{% url "home:product_details_varient" id=product.id varient=9%}">9</a></li>
+                                                {% endif %}
+                                                {% if '10' in sizes %}
+                                                <li class="list-inline-item"><a href="{% url "home:product_details_varient" id=product.id varient=10%}">10</a></li>
+                                                {% endif %}
+                                                {% if '11' in sizes %}
+                                                <li class="list-inline-item"><a href="{% url "home:product_details_varient" id=product.id varient=11%}">11</a></li>
+                                                {% endif %}
+                                                {% comment %} <li class="active"><a href="#">8</a></li>
+                                                <li><a href="#">9</a></li>
+                                                <li><a href="#">10</a></li>
+                                                <li><a href="#">11</a></li> {% endcomment %}
+                                            </ul>
+                                        </div>
+                                        <br>
+                                        <strong class="mr-10">Selected size : {{selected}}</strong>
+                                        <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                                        <div class="detail-extralink">
+                                            {% comment %} <div class="detail-qty border radius">
+                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <span class="qty-val">1</span>
+                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                            </div> {% endcomment %}
+                                            {% if quantity > 0 %}
+                                            <button  class="button button-add-to-cart"><a style="color: aliceblue;" href="{% url "cart_management:add_to_cart" product_id=product.id varient=selected%}">ADD TO CART</a></button>
+                                            {% else %}
+                                            <p style="color: red; display: inline;">Out of Stock</p>
+                                            {% endif %}
+                                            {% comment %} <button  class="button button-add-to-cart"><a style="color: aliceblue;" href="{% url "cart_management:checkout" product_id=product.id varient=selected%}">BUY NOW</a></button> {% endcomment %}
+                                            <div class="product-extra-link2">
+                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="{% url "wishlist:add_to_wishlist" product_id=product.id varient=selected%}"><i class="fi-rs-heart"></i></a>
+                                            </div>
+                                            {% comment %} <div class="product-extra-link2">
+                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                            </div> {% endcomment %}
+                                        </div>
+                                        <ul class="product-meta font-xs color-grey mt-50">
+                                            <li class="mb-5">Category  :  {{product.category}}  </li>
+                                            <li>Availability:<span class="in-stock text-success ml-5">{{ quantity }} Items In Stock</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Detail Info -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Close Main -->
+    <!-- Start Script -->
+    <script src="{% static "home/assets/js/jquery-1.11.0.min.js" %}"></script>
+    <script src="{% static "home/assets/js/jquery-migrate-1.2.1.min.js" %}"></script>
+    <script src="{% static "home/assets/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "home/assets/js/templatemo.js" %}"></script>
+    <script src="{% static "home/assets/js/custom.js" %}"></script>
+    <!-- End Script -->
+
+    <!-- Vendor JS-->
+    <script src="{% static "home/product_details_assets/assets/js/vendor/modernizr-3.6.0.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/vendor/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/vendor/jquery-migrate-3.3.0.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/vendor/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/slick.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery.syotimer.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/wow.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery-ui.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/magnific-popup.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/select2.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/waypoints.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/counterup.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery.countdown.min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/images-loaded.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/isotope.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/scrollup.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery.vticker-min.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery.theia.sticky.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/plugins/jquery.elevatezoom.js" %}"></script>
+    <!-- Template  JS -->
+    <script src="{% static "home/product_details_assets/assets/js/main.js" %}"></script>
+    <script src="{% static "home/product_details_assets/assets/js/shop.js" %}"></script>
+</body>
+</html>

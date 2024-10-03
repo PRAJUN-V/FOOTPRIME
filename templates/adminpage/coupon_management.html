@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>Category management</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "home/images/logo1.png" %}">
+    <!-- Template CSS -->
+    <link href="{% static "adminpage/assets/css/main.css" %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+                <li class="menu-item active">
+                    <a class="menu-link" href="{% url "adminpage:admin_login" %}"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:product_management" %}">Product Management</a>
+                        <a href="{% url "adminpage:category_management" %}">Category Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-sellers-cards.html"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Users</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:user_management" %}">User Management</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:order_list" %}">Order list</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-local_offer"></i>
+                    </i>
+                        <span class="text">Coupon</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:coupon_management" %}">Coupon management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-stars"></i>
+                    </i>
+                        <span class="text">Banner</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:banner" %}">Banner management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-monetization_on"></i>
+                    </i>
+                        <span class="text">Transactions</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="{% url "adminpage:transactions" %}">Transaction management</a>
+                        {% comment %} <a href="page-orders-2.html">Order list 2</a>
+                        <a href="page-orders-detail.html">Order detail</a> {% endcomment %}
+                    </div>
+                </li>
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-orders-1.html"> <i class="icon material-icons md-pie_chart"></i>
+                    </i>
+                        <span class="text">Offer</span>
+                    </a>
+                    <div class="submenu">
+                        {% comment %} <a href="{% url "adminpage:transactions" %}">Category Offer</a> {% endcomment %}
+                        <a href="{% url "adminpage:offer_management" %}">Product offer</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div>
+                    <datalist id="search_terms">
+                            <option value="Product Management">
+                            <option value="Category Management">
+                            <option value="User Management">
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="{% url "home:signout" %}">
+                            <h3>Logout</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Coupon</h2>
+                    <p>Add, edit or delete coupon</p>
+                </div>
+                <div>
+                    <a href="{% url "adminpage:add_coupon" %}" class="btn btn-primary btn-sm rounded">Add new coupon</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            {% comment %} <th class="text-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" />
+                                                </div>
+                                            </th> {% endcomment %}
+                                            {% comment %} <th>ID</th> {% endcomment %}
+                                            <th>Coupon code</th>
+                                            {% comment %} <th>Min price</th> {% endcomment %}
+                                            <th>Discount percentage</th>
+                                            <th>Min cart value</th>
+                                            {% comment %} <th>Max discount</th> {% endcomment %}
+                                            <th>Max usage count</th>
+                                            {% comment %} <th>Valid from</th>
+                                            <th>Valid to</th> {% endcomment %}
+                                            <th>active / Inactive</th>
+                                            {% comment %} <th>Order</th> {% endcomment %}
+                                            <th class="text-end">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for c in  coupons%}
+                                        <tr>
+                                            <td><b>{{c.code}}</b></td>
+                                            {% comment %} <td>{{c.min_purchase_amount}}</td> {% endcomment %}
+                                            <td>{{c.discount_price}}</td>
+                                            <td>{{c.minimum_cart_value}}</td>
+                                            {% comment %} <td>{{c.maximum_discount}}</td> {% endcomment %}
+                                            <td>{{c.maximum_usage_count}}</td>
+                                            {% comment %} <td>{{c.valid_from}}</td>
+                                            <td>{{c.valid_to}}</td> {% endcomment %}
+                                            <td>
+                                                {% if  c.is_active %}
+                                                <div class="col-lg-2 col-sm-2 col-4 col-status">
+                                                    <span class="badge rounded-pill alert-success">Active</span>
+                                                </div>
+                                                {% else %}
+                                                <div class="col-lg-2 col-sm-2 col-4 col-status">
+                                                    <span class="badge rounded-pill alert-danger">Inactive</span>
+                                                </div>
+                                                {% endif %}
+                                            </td>
+                                            {% comment %} <td>1</td> {% endcomment %}
+                                            <td class="text-end">
+                                                <div class="dropdown">
+                                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
+                                                    <div class="dropdown-menu">
+                                                        {% comment %} <a class="dropdown-item" href="#">View detail</a> {% endcomment %}
+                                                        <a class="dropdown-item" href="{% url "adminpage:coupon_update" c.id %}">Update</a>
+                                                        {% if  c.is_active %}
+                                                        <a class="dropdown-item text-danger" href="{% url "adminpage:activate_deactivate_coupon" c.id %}">Deactivate</a>
+                                                        {% else %}
+                                                        <a class="dropdown-item text-success" href="{% url "adminpage:activate_deactivate_coupon" c.id %}">Activate</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div> <!-- dropdown //end -->
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- .col// -->
+                    </div> <!-- .row // -->
+                </div> <!-- card body .// -->
+            </div> <!-- card .// -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if coupons.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ coupons.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                    {% endif %}
+                    {% for num in coupons.paginator.page_range %}
+                        <li class="page-item {% if num == coupons.number %}active{% endif %}">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if coupons.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ coupons.next_page_number }}">Next</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">Next</span></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            
+        </section> <!-- content-main end// -->
+        
+    </main>
+    <script src="{% static "adminpage/assets/js/vendors/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/select2.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/jquery.fullscreen.min.js" %}"></script>
+    <script src="{% static "adminpage/assets/js/vendors/chart.js" %}"></script>
+    <!-- Main Script -->
+    <script src="{% static "adminpage/assets/js/main.js" %}" type="text/javascript"></script>
+    <script src="{% static "adminpage/assets/js/custom-chart.js" %}" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:32:57 GMT -->
+</html>

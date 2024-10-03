@@ -1,0 +1,43 @@
+from django.urls import path
+from . import views
+
+app_name = 'adminpage'
+urlpatterns = [
+    path('', views.admin_dashboard, name='admin_login'),
+    path('user_management/', views.user_management, name='user_management'),
+    path('category_management', views.category_management, name='category_management'),
+    path('product_management', views.product_management, name='product_management'),
+    path('add_products', views.add_products, name='add_products'),
+    path('edit_product', views.edit_product, name='edit_product'),
+    path('update_category', views.update_category, name='update_category'),
+    path('delete_category/<int:id>', views.delete_category, name='delete_category'),
+    path('category_update/<int:id>', views.category_update, name='category_update'),
+    path('update_product/<int:id>', views.update_product, name='update_product'),
+    path('activate_deactivate/<int:id>', views.activate_deactivate, name='activate_deactivate'),# category activate deactivate
+    path('activate_user/<int:user_id>/', views.activate_user, name='activate_user'),
+    path('deactivate_user/<int:user_id>/', views.deactivate_user, name='deactivate_user'),
+    path('order_list/', views.order_list, name='order_list'),
+    path('varients/<int:id>', views.varients, name='varients'),
+    path('add_varients/<int:id>', views.add_varients, name='add_varients'),
+    path('cancel_order/<int:id>', views.cancel_order, name='cancel_order'),
+    path('order_delivered/<int:id>', views.order_delivered, name='order_delivered'),
+    path('refund_order/<int:id>', views.refund_order, name='refund_order'),
+    path('return_order/<int:id>', views.return_order, name='return_order'),
+    path('replacement_order/<int:id>', views.replacement_order, name='replacement_order'),
+    path('coupon_management/', views.coupon_management, name='coupon_management'),
+    path('add_coupon', views.add_coupon, name='add_coupon'),
+    path('activate_deactivate_coupon/<int:id>', views.activate_deactivate_coupon, name='activate_deactivate_coupon'),
+    path('coupon_update/<int:id>', views.coupon_update, name='coupon_update'),
+    path('edit_varient/<int:id>', views.edit_varient, name='edit_varient'),
+    path('order_details/<int:id>', views.order_details, name='order_details'),
+    path('banner/', views.banner, name='banner'),
+    path('add_banner', views.add_banner, name='add_banner'),
+    path('activate_deactivate_banner/<int:id>', views.activate_deactivate_banner, name='activate_deactivate_banner'),
+    path('edit_banner/<int:id>', views.edit_banner, name='edit_banner'),
+    path('transactions/', views.transactions, name='transactions'),
+    path('export_order_details_to_excel/', views.export_order_details_to_excel, name='export_order_details_to_excel'),
+    path('offer_management/', views.offer_management, name='offer_management'),
+    path('add_offer', views.add_offer, name='add_offer'),
+    path('delete_offer/<int:id>', views.delete_offer, name='delete_offer'),
+    path('search_users', views.search_users, name='search_users'),
+]
