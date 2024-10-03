@@ -90,20 +90,6 @@ WSGI_APPLICATION = 'footprime.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'footprime',
-#         'USER': 'mysuperuser',
-#         'PASSWORD': 'mysuperuser',
-#         'HOST': 'footprime.c3coywe2eg5j.ap-southeast-2.rds.amazonaws.com',
-#         'PORT': '5433',
-#         # 'CONN_MAX_AGE': 6000,  # Increase the connection timeout to 600 seconds (10 minutes)
-#     }
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
