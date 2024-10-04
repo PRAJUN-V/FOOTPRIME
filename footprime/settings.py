@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['footprime.shop', 'www.footprime.shop', '13.233.143.94', 'localhost', '127.0.0.1', '52.66.102.251','34.203.239.114']
+ALLOWED_HOSTS = ['footprime.shop', 'www.footprime.shop', '13.233.143.94', 'localhost', '127.0.0.1', '52.66.102.251','34.203.239.114','footprime.duckdns.org']
 
 
 # Application definition
