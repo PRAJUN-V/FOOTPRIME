@@ -11,7 +11,7 @@ S3 Bucket is used to store media files.
 S3 Bucket is connected.
 
 To connect ec2 with our cmd
-ssh -i "footprimeEcommerce.pem" ubuntu@ec2-3-91-87-198.compute-1.amazonaws.com
+ssh -i "footprimeEcom.pem" ubuntu@ec2-34-203-239-114.compute-1.amazonaws.com
 
 sudo apt update -> To update the package index, it fetches the latest package lists from 
 the repositories configured on your system. This allows your package manager to know about 
